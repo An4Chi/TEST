@@ -1,0 +1,16 @@
+repositories {
+    mavenCentral()
+    maven {
+        credentials {
+            username = "${artifactory_user}"
+            password = "${artifactory_password}"
+        }
+        url "${artifactory_contextUrl}/gradle-dev-local"
+        allowInsecureProtocol true
+    }
+}
+dependencies {
+    testImplementation 'org.testng:testng:7.8.0'
+    testImplementation testFixtures("io.locusview.platform:locusview-test-fixtures-integrationTestCompile")
+    implementation "com.nortecview.platform:nortecview-platform-api"
+}
